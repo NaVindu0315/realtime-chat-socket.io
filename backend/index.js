@@ -19,8 +19,12 @@ const io = new Server(server,
     }
     
     );
+ 
+    ///io
 
-
+    io.on('connection', (socket) => {
+        console.log(socket.id);
+    } )
 
 server.listen(3001, () => {
   console.log('running on port 3001');
