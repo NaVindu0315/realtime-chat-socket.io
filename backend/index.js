@@ -27,6 +27,11 @@ const io = new Server(server,
         console.log('user connected',socket.id);
 
 
+        socket.on("join_room",(data) => {
+            socket.join(data);
+            console.log("User joined room: "+data + " with id: "+socket.id);
+        } );
+
         socket.on("disconnect", () => {
             console.log("User disconnected",socket.id);
         } );
