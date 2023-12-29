@@ -20,13 +20,28 @@ function Chat({ socket, username, room }) {
 }
 };
 
-useEffect(()=>
+/*useEffect(()=>
 {
     socket.on("receive_message",(data) => {
-    setMessageList((list) => [...list,data]);
+   setMessageList((list) => [...list,data]);
     });
 
-},[socket]);
+},[socket]);*/
+
+///above one is the working one
+//this one is the bard
+useEffect(() => {
+    const messageReceiver = (data) => {
+        setMessageList((list) => [...list, data]);
+    };
+
+    socket.on("receive_message", messageReceiver);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+        socket.off("receive_message", messageReceiver);
+    };
+}, [socket]);
     return (
         <div className="chat-window">
             <div className="chat-header">
