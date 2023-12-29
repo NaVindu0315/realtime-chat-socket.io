@@ -35,7 +35,7 @@ const io = new Server(server,
         //For sending message
         socket.on("send_message", (data) => {
             //socket.to(data.room).emit("receive_message",data);
-            console.log(data);
+            //console.log(data);
             socket.to(data.room).emit("receive_message",data);
         } );
 
