@@ -12,6 +12,7 @@ function App() {
 
   const [username,setuserrname] = useState("");
   const [room,setroom] = useState(""); 
+  //
 
   const joinRoom = () => { 
     if(username !== "" && room !== "") {
@@ -21,6 +22,7 @@ function App() {
    }
   return (
     <div className="App">
+      <div className="joinChatContainer">
      <h3>Join a chat</h3>
 
      <input type="text" placeholder="Ponna Balla" 
@@ -41,6 +43,7 @@ function App() {
      />
       <button onClick={joinRoom}>Join A Room</button>
       <Chat socket={socket} username={username} room={room}/>
+      </div>
     </div>
   );
 }
