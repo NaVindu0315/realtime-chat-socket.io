@@ -1,6 +1,9 @@
+
+//this is like the home page of the app
 import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
+import Chat from "./Chat";
 
 import io from "socket.io-client";
 
@@ -37,7 +40,7 @@ function App() {
      
      />
       <button onClick={joinRoom}>Join A Room</button>
-      <Chat socket={socket} />
+      <Chat socket={socket} username={username} room={room}/>
     </div>
   );
 }

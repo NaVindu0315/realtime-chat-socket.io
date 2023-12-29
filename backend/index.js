@@ -32,6 +32,13 @@ const io = new Server(server,
             console.log("User joined room: "+data + " with id: "+socket.id);
         } );
 
+        //For sending message
+        socket.on("send_message", (data) => {
+            //socket.to(data.room).emit("receive_message",data);
+            console.log(data);
+        } );
+
+
         socket.on("disconnect", () => {
             console.log("User disconnected",socket.id);
         } );
